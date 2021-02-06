@@ -8,20 +8,22 @@ const Headers = () => {
   return (
     <>
       <Menu pointing primary>
-        <Container>
-          <div className="item">
-            <Image src={logo} width="80px" />
-          </div>
+        <div className="item">
+          <Image src={logo} width="80px" />
+        </div>
 
-          <Menu.Menu position="right">
-            <Link to="/" className="item">
-              Streams
-            </Link>
-            <div className="item">
-              <GoogleAuth />
-            </div>
-          </Menu.Menu>
-        </Container>
+        <Menu.Menu position="right" inverted>
+          <Link to="/" className="item" inverted>
+            Home
+          </Link>
+          <Link to="/streamlist" className="item" inverted>
+            All Streams
+          </Link>
+
+          <div className="item" inverted>
+            <GoogleAuth />
+          </div>
+        </Menu.Menu>
       </Menu>
     </>
   );

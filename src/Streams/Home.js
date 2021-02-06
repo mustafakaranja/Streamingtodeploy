@@ -5,34 +5,32 @@ import { Link } from "react-router-dom";
 import {
   Divider,
   Grid,
-  Header,
   Icon,
   Label,
   List,
   Image,
-  Segment,
+  Header,
 } from "semantic-ui-react";
 import { fetchStreams } from "../Action";
 import Slider from "../Components/Carousel";
+import "../AllCss/Row.css";
 
-class StreamList extends React.Component {
+class home extends React.Component {
   componentDidMount() {
     this.props.fetchStreams();
   }
 
-  renderVideoShow(stream) {
+  renderVideoShow() {
     return (
       <div className="left floated content">
-        <Link to={`/streams/${stream.id}`}>
-          <video width="100%" controls />
-        </Link>
+        <video width="400" controls />
       </div>
     );
   }
   renderCreatedBy(stream) {
     return (
       <React.Fragment>
-        <div className="right floated content">
+        <div className="right floated content" style={{ paddingLest: 20 }}>
           <Label animated as="a" color="teal" tag size="large">
             Created by : {stream.UserName}
           </Label>
@@ -94,21 +92,15 @@ class StreamList extends React.Component {
     return this.props.streams.map((stream) => {
       return (
         <>
-          <List.Item key={stream.id}>
-            <Segment>
-              {this.renderVideoShow(stream)}
-              {this.renderAdmin(stream)}
-              {this.renderCreatedBy(stream)}
-              <Image avatar spaced="right" src={logo} />
-              <div className="content">
-                <Link to={`/streams/${stream.id}`}>
-                  <h3> {stream.title} </h3>
-                </Link>
-                <div className="description">
-                  <p> {stream.description}</p>
-                </div>
-              </div>
-            </Segment>
+          <List.Item key={stream.id} className="row-Stream">
+            {this.renderVideoShow(stream)}
+
+            <Image avatar spaced="right" src={logo} />
+            <div className="content">
+              <Link to={`/streams/${stream.id}`}>
+                <h4> {stream.title} </h4>
+              </Link>
+            </div>
           </List.Item>
         </>
       );
@@ -118,28 +110,59 @@ class StreamList extends React.Component {
     console.log(this.props.streams);
     console.log("UserName", this.props.currentUserName);
     return (
-      <div>
-        <Grid streached centered>
-          <Grid.Column width="13" style={{ marginTop: 30 }}>
-            <Header as="h2" textAlign="center">
-              All Streams
-            </Header>
-            <Header as="h5" textAlign="center">
-              Here you will get the current Streams
-            </Header>
-            <Grid columns={3}>
-              <Grid.Row>
-                <Grid.Column width="7"> {this.renderEmail()}</Grid.Column>
-                <Grid.Column width="6"></Grid.Column>
-                <Grid.Column width="3" className="right floated content">
-                  {this.renderCreate()}
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-            <Divider color="blue" />
-            <div className="row-Lists">{this.renderList()}</div>
-          </Grid.Column>
-        </Grid>
+      <div style={{ backgroundColor: "#f9f9f9" }}>
+        <Slider />
+
+        <Grid.Column width="13" style={{ marginTop: 30 }}>
+          <Grid columns={3}>
+            <Grid.Row style={{ paddingLeft: 80 }}>
+              <Grid.Column width="7"> {this.renderEmail()}</Grid.Column>
+              <Grid.Column width="6"></Grid.Column>
+              <Grid.Column width="3" className="right floated content">
+                {this.renderCreate()}
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+          <Divider color="blue" />
+          <Header as="h2" textAlign="center">
+            Gaming Streams
+          </Header>
+
+          <List raised className="row-Streams">
+            {this.renderList()}
+          </List>
+          <Header as="h2" textAlign="center">
+            Coding Streams
+          </Header>
+
+          <List raised className="row-Streams">
+            {this.renderList()}
+          </List>
+          <Header as="h2" textAlign="center">
+            {" "}
+            Exclusive Streams
+          </Header>
+
+          <List raised className="row-Streams">
+            {this.renderList()}
+          </List>
+          <Header as="h2" textAlign="center">
+            {" "}
+            News{" "}
+          </Header>
+
+          <List raised className="row-Streams">
+            {this.renderList()}
+          </List>
+          <Header as="h2" textAlign="center">
+            {" "}
+            Recomandations
+          </Header>
+
+          <List raised className="row-Streams">
+            {this.renderList()}
+          </List>
+        </Grid.Column>
       </div>
     );
   }
@@ -157,4 +180,4 @@ const MapStateToProps = (state) => {
   };
 };
 
-export default connect(MapStateToProps, { fetchStreams })(StreamList);
+export default connect(MapStateToProps, { fetchStreams })(home);

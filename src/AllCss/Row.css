@@ -1,0 +1,44 @@
+.row-Stream {
+  width: 100%;
+
+  margin-right: 10px;
+  object-fit: contain;
+  transition: transform 450ms;
+  padding: 20px;
+}
+
+.row-Streams {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px;
+  padding-bottom: none;
+}
+.row-Streams::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  width: 1px;
+}
+
+.row-Streams::-webkit-scrollbar-thumb:hover {
+  background: #111;
+}
+
+.row-Stream:hover {
+  transform: scale(1.08);
+}
+
+.ui.list,
+ol.ui.list,
+ul.ui.list {
+  padding: 20px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}

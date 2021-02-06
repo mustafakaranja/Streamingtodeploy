@@ -7,7 +7,7 @@ import slider4 from "../Assets/slider4.jpg";
 
 const Slider = () => {
   return (
-    <div className="ui container">
+    <div>
       <Carousel>
         <Carousel.Item interval={1000}>
           <img src={slider4} width="100%" />

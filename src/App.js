@@ -7,7 +7,7 @@ import StreamDelete from "./Streams/StreamDelete";
 import StreamEdit from "./Streams/StreamEdit";
 import StreamList from "./Streams/StreamList";
 import StreamShow from "./Streams/StreamShow";
-import Footer from "./Components/Footer";
+import Home from "./Streams/Home";
 
 const App = () => {
   document.title = "Best Entertainment";
@@ -18,7 +18,8 @@ const App = () => {
 
         <div>
           <Switch>
-            <Route path="/" exact component={StreamList} />
+            <Route path="/" exact component={Home} />
+            <Route path="/Streamlist" exact component={StreamList} />
             <Route path="/streams/new" component={StreamCreate} />
             <Route path="/streams/edit/:id" component={StreamEdit} />
             <Route path="/streams/delete/:id" component={StreamDelete} />
