@@ -3,11 +3,15 @@ import React from "react";
 import slider1 from "../Assets/slider1.jpg";
 import slider2 from "../Assets/slider2.jpg";
 import slider3 from "../Assets/slider3.jpg";
+import slider4 from "../Assets/slider4.jpg";
 
 const Slider = () => {
   return (
     <div className="ui container">
       <Carousel>
+        <Carousel.Item interval={1000}>
+          <img src={slider4} width="100%" />
+        </Carousel.Item>
         <Carousel.Item interval={1000}>
           <img src={slider1} width="100%" />
           <Carousel.Caption>
