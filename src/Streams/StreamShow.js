@@ -3,6 +3,7 @@ import flv from "flv.js";
 import { connect } from "react-redux";
 import { Container, Divider, Segment } from "semantic-ui-react";
 import { fetchStream } from "../Action";
+import HeaderForAll from "../Components/HeaderForAll";
 
 class StreamShow extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class StreamShow extends React.Component {
     return (
       <div>
         <Container>
-          <Segment>
+          <Segment style={{ marginBottom: 20 }}>
             <video ref={this.videoRef} style={{ width: "100%" }} controls />
             <h2>{title}</h2>
             <Divider />

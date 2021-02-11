@@ -14,6 +14,8 @@ import {
 import { fetchStreams } from "../Action";
 import Slider from "../Components/Carousel";
 import "../AllCss/Row.css";
+import Headers from "../Components/Header";
+import FooterForAll from "../Components/Footer";
 
 class home extends React.Component {
   componentDidMount() {
@@ -98,7 +100,7 @@ class home extends React.Component {
             <Image avatar spaced="right" src={logo} />
             <div className="content">
               <Link to={`/streams/${stream.id}`}>
-                <h4> {stream.title} </h4>
+                <h4 style={{ color: "white" }}> {stream.title} </h4>
               </Link>
             </div>
           </List.Item>
@@ -110,60 +112,63 @@ class home extends React.Component {
     console.log(this.props.streams);
     console.log("UserName", this.props.currentUserName);
     return (
-      <div style={{ backgroundColor: "#f9f9f9" }}>
-        <Slider />
+      <>
+        <div className="bg">
+          <Slider />
+          <Grid.Column width="13">
+            <Grid columns={3}>
+              <Grid.Row style={{ paddingLeft: 80, marginTop: 20 }}>
+                <Grid.Column width="7"> {this.renderEmail()}</Grid.Column>
+                <Grid.Column width="6"></Grid.Column>
+                <Grid.Column width="3" className="right floated content">
+                  {this.renderCreate()}
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
 
-        <Grid.Column width="13" style={{ marginTop: 30 }}>
-          <Grid columns={3}>
-            <Grid.Row style={{ paddingLeft: 80 }}>
-              <Grid.Column width="7"> {this.renderEmail()}</Grid.Column>
-              <Grid.Column width="6"></Grid.Column>
-              <Grid.Column width="3" className="right floated content">
-                {this.renderCreate()}
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-          <Divider color="blue" />
-          <Header as="h2" textAlign="center">
-            Gaming Streams
-          </Header>
+            <Header as="h2" icon textAlign="center" inverted>
+              <Icon name="game" />
+              Gaming Streams
+            </Header>
 
-          <List raised className="row-Streams">
-            {this.renderList()}
-          </List>
-          <Header as="h2" textAlign="center">
-            Coding Streams
-          </Header>
+            <List raised className="row-Streams">
+              {this.renderList()}
+            </List>
+            <Header as="h2" icon textAlign="center" inverted>
+              <Icon name="code" />
+              Coding Streams
+            </Header>
 
-          <List raised className="row-Streams">
-            {this.renderList()}
-          </List>
-          <Header as="h2" textAlign="center">
-            {" "}
-            Exclusive Streams
-          </Header>
+            <List raised className="row-Streams">
+              {this.renderList()}
+            </List>
+            <Header as="h2" icon textAlign="center" inverted>
+              <Icon name="tag" />
+              Exclusive Streams
+            </Header>
 
-          <List raised className="row-Streams">
-            {this.renderList()}
-          </List>
-          <Header as="h2" textAlign="center">
-            {" "}
-            News{" "}
-          </Header>
+            <List raised className="row-Streams">
+              {this.renderList()}
+            </List>
+            <Header as="h2" icon textAlign="center" inverted>
+              <Icon name="newspaper" />
+              News{" "}
+            </Header>
 
-          <List raised className="row-Streams">
-            {this.renderList()}
-          </List>
-          <Header as="h2" textAlign="center">
-            {" "}
-            Recomandations
-          </Header>
+            <List raised className="row-Streams">
+              {this.renderList()}
+            </List>
+            <Header as="h2" icon textAlign="center" inverted>
+              <Icon name="twitch" />
+              Recomandations
+            </Header>
 
-          <List raised className="row-Streams">
-            {this.renderList()}
-          </List>
-        </Grid.Column>
-      </div>
+            <List raised className="row-Streams">
+              {this.renderList()}
+            </List>
+          </Grid.Column>
+        </div>
+      </>
     );
   }
 }

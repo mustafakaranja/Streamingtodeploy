@@ -10,6 +10,7 @@ import {
   Loader,
 } from "semantic-ui-react";
 import { editStream, fetchStream } from "../Action";
+import HeaderForAll from "../Components/HeaderForAll";
 import StreamFrom from "./StreamFrom";
 
 class StreamEdit extends React.Component {

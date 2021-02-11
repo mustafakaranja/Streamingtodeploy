@@ -3,6 +3,7 @@ import { Grid, Header, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { CreateStream } from "../Action";
 import StreamFrom from "./StreamFrom";
+import "../AllCss/CreateStream.css";
 
 const StreamCreate = (formProps) => {
   const onSubmit = (formValues) => {
@@ -12,9 +13,9 @@ const StreamCreate = (formProps) => {
   return (
     <div>
       <Grid centered>
-        <Grid.Column style={{ maxWidth: 600, marginTop: 30 }}>
-          <Segment>
-            <Header as="h1" textAlign="center">
+        <Grid.Column style={{ maxWidth: 600, marginTop: 30, marginbottom: 30 }}>
+          <Segment className="create-streams">
+            <Header as="h1" textAlign="center" className="stream-header">
               {" "}
               Create a Stream{" "}
             </Header>

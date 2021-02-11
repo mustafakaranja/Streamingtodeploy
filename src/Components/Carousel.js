@@ -4,6 +4,7 @@ import slider1 from "../Assets/slider1.jpg";
 import slider2 from "../Assets/slider2.jpg";
 import slider3 from "../Assets/slider3.jpg";
 import slider4 from "../Assets/slider4.jpg";
+import "../AllCss/fadding.css";
 
 const Slider = () => {
   return (
@@ -31,6 +32,7 @@ const Slider = () => {
           <img src={slider3} width="100%" />
         </Carousel.Item>
       </Carousel>
+      <div className="fadded-image"></div>
     </div>
   );
 };

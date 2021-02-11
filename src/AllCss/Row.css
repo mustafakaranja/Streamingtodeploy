@@ -13,14 +13,18 @@
   overflow-x: scroll;
   padding: 20px;
   padding-bottom: none;
+  cursor: pointer;
 }
 .row-Streams::-webkit-scrollbar-thumb {
   border-radius: 10px;
   width: 1px;
+
+  background-color: aliceblue;
 }
 
 .row-Streams::-webkit-scrollbar-thumb:hover {
-  background: #111;
+  background: rgb(253, 253, 253);
+  cursor: pointer;
 }
 
 .row-Stream:hover {
@@ -33,12 +37,17 @@ ul.ui.list {
   padding: 20px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+@import url(https://fonts.googleapis.com/css?family=comic+Sans:300,400);
 * {
   margin: 0;
   padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 html,
 body {
   height: 100%;
+}
+
+.bg {
+  background-color: #001a1d;
 }

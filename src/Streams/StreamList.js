@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../Assets/logo.png";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import {
   Divider,
   Grid,
@@ -13,7 +14,6 @@ import {
   Segment,
 } from "semantic-ui-react";
 import { fetchStreams } from "../Action";
-import Slider from "../Components/Carousel";
 
 class StreamList extends React.Component {
   componentDidMount() {
@@ -89,13 +89,14 @@ class StreamList extends React.Component {
       );
     }
   }
+
   renderList() {
     console.log("userImage", this.props.currentUserImage);
     return this.props.streams.map((stream) => {
       return (
         <>
           <List.Item key={stream.id}>
-            <Segment>
+            <Segment style={{ marginBottom: 20 }}>
               {this.renderVideoShow(stream)}
               {this.renderAdmin(stream)}
               {this.renderCreatedBy(stream)}
