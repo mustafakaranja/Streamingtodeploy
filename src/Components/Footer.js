@@ -13,11 +13,11 @@ import logo from "../Assets/logo.png";
 
 const FooterForAll = () => {
   return (
-    <div style={{ marginBottom: 10 }}>
+    <div>
       <Segment
         inverted
         vertical
-        style={{ padding: "5em 0em", background: "#000b0c" }}
+        style={{ padding: "4em 0em", background: "#000b0c" }}
       >
         <Container>
           <Grid divided inverted stackable>
@@ -78,7 +78,6 @@ const FooterForAll = () => {
           </Grid>
         </Container>
       </Segment>
-      ;
     </div>
   );
 };

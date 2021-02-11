@@ -32,7 +32,10 @@ class StreamList extends React.Component {
   renderCreatedBy(stream) {
     return (
       <React.Fragment>
-        <div className="right floated content">
+        <div
+          className="right floated content"
+          style={{ paddingBottom: 20, paddingTop: 20 }}
+        >
           <Label animated as="a" color="teal" tag size="large">
             Created by : {stream.UserName}
           </Label>
@@ -45,7 +48,7 @@ class StreamList extends React.Component {
     if (stream.userId === this.props.currentUserId) {
       return (
         <>
-          <div className="right floated content">
+          <div className="right floated content" style={{ paddingBottom: 10 }}>
             <Link
               to={`/streams/edit/${stream.id}`}
               className="ui button primary"
@@ -98,8 +101,9 @@ class StreamList extends React.Component {
           <List.Item key={stream.id}>
             <Segment style={{ marginBottom: 20 }}>
               {this.renderVideoShow(stream)}
-              {this.renderAdmin(stream)}
+
               {this.renderCreatedBy(stream)}
+
               <Image avatar spaced="right" src={logo} />
               <div className="content">
                 <Link to={`/streams/${stream.id}`}>
@@ -108,6 +112,7 @@ class StreamList extends React.Component {
                 <div className="description">
                   <p> {stream.description}</p>
                 </div>
+                {this.renderAdmin(stream)}
               </div>
             </Segment>
           </List.Item>
