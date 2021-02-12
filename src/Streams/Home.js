@@ -7,6 +7,8 @@ import { fetchStreams } from "../Action";
 import Slider from "../Components/Carousel";
 import bestvideo1 from "../Assets/bestvideo.gif";
 import "../AllCss/Row.css";
+import { useSpring } from "react-spring";
+import { Spring } from "react-spring/renderprops";
 
 class home extends React.Component {
   componentDidMount() {
@@ -129,51 +131,62 @@ class home extends React.Component {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-            <div className="List-of-stream">
-              <Header as="h2" icon textAlign="center" inverted>
-                <Icon name="game" />
-                Gaming Streams
-              </Header>
-              <List raised className="row-Streams">
-                {this.renderList()}
-              </List>
-            </div>
-            <div className="List-of-stream">
-              <Header as="h2" icon textAlign="center" inverted>
-                <Icon name="code" />
-                Coding Streams
-              </Header>
-              <List raised className="row-Streams">
-                {this.renderList()}
-              </List>
-            </div>
-            <div className="List-of-stream">
-              <Header as="h2" icon textAlign="center" inverted>
-                <Icon name="tag" />
-                Exclusive Streams
-              </Header>
-              <List raised className="row-Streams">
-                {this.renderList()}
-              </List>
-            </div>
-            <div className="List-of-stream">
-              <Header as="h2" icon textAlign="center" inverted>
-                <Icon name="newspaper" />
-                News{" "}
-              </Header>
-              <List raised className="row-Streams">
-                {this.renderList()}
-              </List>
-            </div>
-            <div className="List-of-stream">
-              <Header as="h2" icon textAlign="center" inverted>
-                <Icon name="twitch" />
-                Recomandations
-              </Header>
-              <List raised className="row-Streams">
-                {this.renderList()}
-              </List>
-            </div>
+            <Spring
+              from={{ opacity: 0, marginLeft: -1000 }}
+              to={{ opacity: 1, marginLeft: 0 }}
+            >
+              {(props) => {
+                return (
+                  <>
+                    <div className="List-of-stream" style={props}>
+                      <Header as="h2" icon textAlign="center" inverted>
+                        <Icon name="game" />
+                        Gaming Streams
+                      </Header>
+                      <List raised className="row-Streams">
+                        {this.renderList()}
+                      </List>
+                    </div>
+                    <div className="List-of-stream" style={props}>
+                      <Header as="h2" icon textAlign="center" inverted>
+                        <Icon name="code" />
+                        Coding Streams
+                      </Header>
+                      <List raised className="row-Streams">
+                        {this.renderList()}
+                      </List>
+                    </div>
+                    <div className="List-of-stream" style={props}>
+                      <Header as="h2" icon textAlign="center" inverted>
+                        <Icon name="tag" />
+                        Exclusive Streams
+                      </Header>
+                      <List raised className="row-Streams">
+                        {this.renderList()}
+                      </List>
+                    </div>
+                    <div className="List-of-stream" style={props}>
+                      <Header as="h2" icon textAlign="center" inverted>
+                        <Icon name="newspaper" />
+                        News{" "}
+                      </Header>
+                      <List raised className="row-Streams">
+                        {this.renderList()}
+                      </List>
+                    </div>
+                    <div className="List-of-stream" style={props}>
+                      <Header as="h2" icon textAlign="center" inverted>
+                        <Icon name="twitch" />
+                        Recomandations
+                      </Header>
+                      <List raised className="row-Streams">
+                        {this.renderList()}
+                      </List>
+                    </div>
+                  </>
+                );
+              }}
+            </Spring>
           </Grid.Column>
         </div>
       </>
