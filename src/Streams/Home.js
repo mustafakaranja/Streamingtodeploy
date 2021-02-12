@@ -2,67 +2,63 @@ import React from "react";
 import logo from "../Assets/logo.png";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  Divider,
-  Grid,
-  Icon,
-  Label,
-  List,
-  Image,
-  Header,
-} from "semantic-ui-react";
+import { Grid, Icon, Label, List, Image, Header } from "semantic-ui-react";
 import { fetchStreams } from "../Action";
 import Slider from "../Components/Carousel";
+import bestvideo1 from "../Assets/bestvideo.gif";
 import "../AllCss/Row.css";
-import Headers from "../Components/Header";
-import FooterForAll from "../Components/Footer";
 
 class home extends React.Component {
   componentDidMount() {
     this.props.fetchStreams();
   }
-
+  //this is the video comp
   renderVideoShow() {
     return (
       <div className="left floated content">
-        <video width="400" controls />
+        <img
+          width="200"
+          src={bestvideo1}
+          controls
+          style={{ marginBottom: 10, boxShadow: "3px 4px 2px #fcffff" }}
+        />
       </div>
     );
   }
-  renderCreatedBy(stream) {
-    return (
-      <React.Fragment>
-        <div className="right floated content" style={{ paddingLest: 20 }}>
-          <Label animated as="a" color="teal" tag size="large">
-            Created by : {stream.UserName}
-          </Label>
-        </div>
-      </React.Fragment>
-    );
-  }
+  // renderCreatedBy(stream) {
+  //   return (
+  //     <React.Fragment>
+  //       <div className="right floated content" style={{ paddingLest: 20 }}>
+  //         <Label animated as="a" color="teal" tag size="large">
+  //           Created by : {stream.UserName}
+  //         </Label>
+  //       </div>
+  //     </React.Fragment>
+  //   );
+  // }
 
-  renderAdmin(stream) {
-    if (stream.userId === this.props.currentUserId) {
-      return (
-        <>
-          <div className="right floated content">
-            <Link
-              to={`/streams/edit/${stream.id}`}
-              className="ui button primary"
-            >
-              <Icon animated name="pencil" /> Edit
-            </Link>
-            <Link
-              to={`/streams/delete/${stream.id}`}
-              className="ui button negative"
-            >
-              Delete
-            </Link>
-          </div>
-        </>
-      );
-    }
-  }
+  // renderAdmin(stream) {
+  //   if (stream.userId === this.props.currentUserId) {
+  //     return (
+  //       <>
+  //         <div className="right floated content">
+  //           <Link
+  //             to={`/streams/edit/${stream.id}`}
+  //             className="ui button primary"
+  //           >
+  //             <Icon animated name="pencil" /> Edit
+  //           </Link>
+  //           <Link
+  //             to={`/streams/delete/${stream.id}`}
+  //             className="ui button negative"
+  //           >
+  //             Delete
+  //           </Link>
+  //         </div>
+  //       </>
+  //     );
+  //   }
+  // }
 
   renderCreate() {
     if (this.props.currentIsSignedIn) {
@@ -95,14 +91,22 @@ class home extends React.Component {
       return (
         <>
           <List.Item key={stream.id} className="row-Stream">
-            {this.renderVideoShow(stream)}
+            <Link to={`/streams/${stream.id}`}>
+              {this.renderVideoShow(stream)}
 
-            <Image avatar spaced="right" src={logo} />
-            <div className="content">
-              <Link to={`/streams/${stream.id}`}>
-                <h4 style={{ color: "white" }}> {stream.title} </h4>
-              </Link>
-            </div>
+              <Image
+                avatar
+                spaced="right"
+                src={logo}
+                style={{ marginBottom: 10 }}
+              />
+              <div className="content">
+                <h4 style={{ color: "white", marginBottom: 15 }}>
+                  {" "}
+                  {stream.title}{" "}
+                </h4>
+              </div>
+            </Link>
           </List.Item>
         </>
       );
@@ -125,47 +129,51 @@ class home extends React.Component {
                 </Grid.Column>
               </Grid.Row>
             </Grid>
-
-            <Header as="h2" icon textAlign="center" inverted>
-              <Icon name="game" />
-              Gaming Streams
-            </Header>
-
-            <List raised className="row-Streams">
-              {this.renderList()}
-            </List>
-            <Header as="h2" icon textAlign="center" inverted>
-              <Icon name="code" />
-              Coding Streams
-            </Header>
-
-            <List raised className="row-Streams">
-              {this.renderList()}
-            </List>
-            <Header as="h2" icon textAlign="center" inverted>
-              <Icon name="tag" />
-              Exclusive Streams
-            </Header>
-
-            <List raised className="row-Streams">
-              {this.renderList()}
-            </List>
-            <Header as="h2" icon textAlign="center" inverted>
-              <Icon name="newspaper" />
-              News{" "}
-            </Header>
-
-            <List raised className="row-Streams">
-              {this.renderList()}
-            </List>
-            <Header as="h2" icon textAlign="center" inverted>
-              <Icon name="twitch" />
-              Recomandations
-            </Header>
-
-            <List raised className="row-Streams">
-              {this.renderList()}
-            </List>
+            <div className="List-of-stream">
+              <Header as="h2" icon textAlign="center" inverted>
+                <Icon name="game" />
+                Gaming Streams
+              </Header>
+              <List raised className="row-Streams">
+                {this.renderList()}
+              </List>
+            </div>
+            <div className="List-of-stream">
+              <Header as="h2" icon textAlign="center" inverted>
+                <Icon name="code" />
+                Coding Streams
+              </Header>
+              <List raised className="row-Streams">
+                {this.renderList()}
+              </List>
+            </div>
+            <div className="List-of-stream">
+              <Header as="h2" icon textAlign="center" inverted>
+                <Icon name="tag" />
+                Exclusive Streams
+              </Header>
+              <List raised className="row-Streams">
+                {this.renderList()}
+              </List>
+            </div>
+            <div className="List-of-stream">
+              <Header as="h2" icon textAlign="center" inverted>
+                <Icon name="newspaper" />
+                News{" "}
+              </Header>
+              <List raised className="row-Streams">
+                {this.renderList()}
+              </List>
+            </div>
+            <div className="List-of-stream">
+              <Header as="h2" icon textAlign="center" inverted>
+                <Icon name="twitch" />
+                Recomandations
+              </Header>
+              <List raised className="row-Streams">
+                {this.renderList()}
+              </List>
+            </div>
           </Grid.Column>
         </div>
       </>

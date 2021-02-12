@@ -7,7 +7,7 @@ import GoogleAuth from "../Services/GoogleAuth/GoogleAuth";
 const HeaderForAll = () => {
   return (
     <>
-      <Menu pointing primary>
+      <Menu pointing primary style={{ marginBottom: 0 }}>
         <Container>
           <div className="item">
             <Image src={logo} width="80px" />

@@ -43,7 +43,7 @@ class StreamShow extends React.Component {
     return (
       <div>
         <Container>
-          <Segment style={{ marginBottom: 20 }}>
+          <Segment style={{ marginBottom: 20, marginTop: 50 }}>
             <video ref={this.videoRef} style={{ width: "100%" }} controls />
             <h2>{title}</h2>
             <Divider />

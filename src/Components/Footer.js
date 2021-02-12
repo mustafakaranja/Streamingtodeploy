@@ -39,7 +39,18 @@ const FooterForAll = () => {
                     src={logo}
                     alt="Best entertainment"
                   />
-                  <Header.Content> Best Entertainment </Header.Content>
+                  <Header.Content> Best Entertainment</Header.Content>
+                  <Header.Content
+                    as="a"
+                    style={{ padding: 10, marginBottom: 20, fontSize: 12 }}
+                  >
+                    <p as="a">
+                      {" "}
+                      Web Appliction that runs all streaming Platforms on a
+                      single server as a host, using Javascript ,Json & cloud
+                      computing.{" "}
+                    </p>
+                  </Header.Content>
                 </Header>
               </Grid.Column>
               <Grid.Column width={6}>
@@ -59,10 +70,12 @@ const FooterForAll = () => {
                 <Header inverted as="h4" content="Services" />
                 <List link inverted>
                   <List.Item as={Link} to="/">
-                    Home
+                    <List.Icon name="home" />
+                    <List.Content>Home</List.Content>
                   </List.Item>
                   <List.Item as={Link} to="/Streamlist">
-                    All Streams
+                    <List.Icon name="video" />
+                    <List.Content>All Stream</List.Content>
                   </List.Item>
                   <List.Item
                     as="a"

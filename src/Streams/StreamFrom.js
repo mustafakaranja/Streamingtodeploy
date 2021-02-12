@@ -1,15 +1,6 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import {
-  Button,
-  Divider,
-  Form,
-  Grid,
-  Header,
-  Icon,
-  Input,
-  Label,
-} from "semantic-ui-react";
+import { Button, Form, Icon, Input, Label } from "semantic-ui-react";
 
 const StreamForm = (formProps) => {
   // onSubmit function is winded up by the redux form file

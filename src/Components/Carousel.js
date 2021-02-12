@@ -11,9 +11,6 @@ const Slider = () => {
     <div>
       <Carousel>
         <Carousel.Item interval={1000}>
-          <img src={slider4} width="100%" />
-        </Carousel.Item>
-        <Carousel.Item interval={1000}>
           <img src={slider1} width="100%" />
           <Carousel.Caption>
             <h3>Happy Gaming</h3>
@@ -25,6 +22,10 @@ const Slider = () => {
             </p>
           </Carousel.Caption>
         </Carousel.Item>
+        <Carousel.Item interval={1000}>
+          <img src={slider4} width="100%" />
+        </Carousel.Item>
+
         <Carousel.Item interval={1000}>
           <img src={slider2} width="100%" />
         </Carousel.Item>

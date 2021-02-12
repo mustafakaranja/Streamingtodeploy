@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../Assets/logo.png";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import bestvideo from "../Assets/bestvideo.gif";
 
 import {
   Divider,
@@ -24,7 +25,12 @@ class StreamList extends React.Component {
     return (
       <div className="left floated content">
         <Link to={`/streams/${stream.id}`}>
-          <video width="100%" controls />
+          <video
+            src={bestvideo}
+            controls
+            width="100%"
+            style={{ maxHeight: 400 }}
+          />
         </Link>
       </div>
     );
@@ -48,7 +54,10 @@ class StreamList extends React.Component {
     if (stream.userId === this.props.currentUserId) {
       return (
         <>
-          <div className="right floated content" style={{ paddingBottom: 10 }}>
+          <div
+            className="right floated content"
+            style={{ paddingBottom: 10, paddingTop: 10 }}
+          >
             <Link
               to={`/streams/edit/${stream.id}`}
               className="ui button primary"

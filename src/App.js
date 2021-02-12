@@ -1,6 +1,5 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
-import Header from "./Components/Header";
 import history from "./History/history";
 import StreamCreate from "./Streams/StreamCreate";
 import StreamDelete from "./Streams/StreamDelete";

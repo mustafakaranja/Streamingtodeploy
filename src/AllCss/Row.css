@@ -50,4 +50,10 @@ body {
 
 .bg {
   background-color: #001a1d;
+  padding-bottom: 25px;
+}
+.List-of-stream:hover {
+  transform: scale(1.03);
+  transition: transform 700ms;
+  padding: 20px;
 }

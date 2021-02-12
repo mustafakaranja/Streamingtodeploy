@@ -1,16 +1,8 @@
 import _ from "lodash";
 import React from "react";
 import { connect } from "react-redux";
-import {
-  Message,
-  Segment,
-  Header,
-  Grid,
-  Dimmer,
-  Loader,
-} from "semantic-ui-react";
+import { Segment, Header, Grid, Dimmer, Loader } from "semantic-ui-react";
 import { editStream, fetchStream } from "../Action";
-import HeaderForAll from "../Components/HeaderForAll";
 import StreamFrom from "./StreamFrom";
 
 class StreamEdit extends React.Component {
